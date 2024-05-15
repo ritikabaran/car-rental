@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Airplane Booking</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+      }
+
+      section {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 20px;
+      }
+
+      .card {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 10px;
+        width: 600px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .card:hover {
+        transform: scale(1.05);
+      }
+
+      h2 {
+        color: #333;
+      }
+
+      p {
+        color: #666;
+      }
+
+      footer {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+
+      .auth-buttons {
+        text-align: center;
+        margin: 60px 0;
+      }
+
+      .auth-buttons a {
+        text-decoration: none;
+        color: #fff;
+        background-color: #4caf50;
+        padding: 10px 15px;
+        border-radius: 4px;
+        margin: 0 10px;
+        transition: background-color 0.3s;
+      }
+
+      .auth-buttons a:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to Hawai Yatra!</h1>
+    </header>
+
+    <section>
+      <div class="card">
+        <h2>Domestic Flights</h2>
+        <p>Explore and book flights within the country.</p>
+        <a href="#">View Flights</a>
+      </div>
+
+      <div class="card">
+        <h2>International Flights</h2>
+        <p>Discover and book international flights.</p>
+        <a href="#">View Flights</a>
+      </div>
+
+      <div class="card">
+        <h2>Last Minute Deals</h2>
+        <p>Find great deals on last-minute flights.</p>
+        <a href="#">View Deals</a>
+      </div>
+    </section>
+
+    <div class="auth-buttons">
+      <a href="{% url 'user:login' %}">Login</a>
+      <a href="{% url 'user:signup' %}">Sign Up</a>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Airplane Booking. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Created Successfully</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+        a {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-size: 18px;
+            text-transform: uppercase;
+            border: 2px solid transparent;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Created Successfully!</h1>
+        <p>Welcome to our platform. You are now registered and ready to explore.</p>
+        <a href="{% url 'user:login' %}">Login</a>
+        <a href="{% url 'user:welcome' %}">Homepage</a>
+    </div>
+</body>
+</html>

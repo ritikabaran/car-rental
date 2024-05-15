@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking History</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(90deg, #ff0000, #000000, #0000ff);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #0275d8;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #0256b8;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .flight-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .flight {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 20px;
+            width: calc(50% - 40px);
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        .flight h2 {
+            color: #0275d8;
+        }
+
+        .flight p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        button {
+            background-color: #0275d8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0256b8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <a href="{% url 'user:homepage' %}">Home</a>
+            <a href="{% url 'user:logout' %}">Logout</a>
+        </div>
+        <h1 style="color:white;">PREVIOUS BOOKINGS</h1>
+        <div class="flight-list">
+            {% for ele in data %}
+            <div class="flight">
+                <h2>{{ele.car}}</h2>
+                <p>Book From: {{ele.book_from}}</p>
+                <p>Book To: {{ele.book_to}}</p>
+                <p>Price: {{ele.price}}</p>
+                <p>Booking Id: {{ele.book_id}}</p>
+                <button>Booking Available</button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

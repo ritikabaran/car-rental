@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Available car</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color:black;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+  }
+
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+
+  .car-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .car {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 20px;
+    width: calc(50% - 40px);
+    box-shadow: 0 0 10px #ccc;
+    display: flex; /* Make the car div flex container */
+    flex-direction: column; /* Arrange children vertically */
+    background-size: cover;
+    background-position: center;
+  }
+
+  .car h2 {
+    color: #0275d8;
+  }
+
+  .car p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  button {
+    background-color: #0275d8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  button:hover {
+    background-color: #0256b8;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1 style="color:white;">Available Cars for Booking</h1>
+  <div class="car-list">
+    {% for ele in from_to_data %}
+    <div class="car" style="background-image: url({% static 'img/car4.png' %});">
+      <h2 style="color:white;">Car:{{ ele.car }}</h2>
+      <p style="color:white;">Date: {{ ele.book_from }}</p>
+      <p style="color:white;">From: {{ ele.book_to }}</p>
+      <p style="color:white;">Distance limit: {{ ele.km }} km</p>
+      <form action="{% url 'user:result2' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" value="{{ ele.car }}" name="car">Book now</button>
+      </form>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+</body>
+</html>

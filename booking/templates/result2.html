@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("{% static 'img/car5.png' %}"), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); /* Dark overlay */
+            background-blend-mode: overlay; /* Blend mode for the overlay */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .logo {
+            position: absolute; /* Position the logo absolutely */
+            top: 20px; /* Adjust as needed */
+            left: 20px; /* Adjust as needed */
+            width: 100px; /* Adjust width */
+            height: auto; /* Maintain aspect ratio */
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent color */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Increased shadow */
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            color: white; /* Set text color to white */
+            position: relative; /* Ensure content doesn't overlap with logo */
+        }
+        h1, h2, p, .footer {
+            color: white; /* Set text color to white */
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-bottom: 10px;
+        }
+        p {
+            margin: 5px 0;
+        }
+        a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <img class="logo" src="{% static 'img/logo3.png' %}" alt="Logo"> <!-- Adjust src and alt attributes accordingly -->
+    <div class="container">
+        <h1>Booking Successful!</h1>
+        <h2>{{ car }}</h2>
+        <p>Book From: {{ book_from }}</p>
+        <p>Book To: {{ book_to }}</p>
+        <p>Price: {{ price }}</p>
+        <p>Booking ID: {{ book_id }}</p>
+        <a href="{% url 'user:homepage' %}">Home Page</a><br>
+        <a href="{% url 'user:logout' %}">Logout</a>
+        <div class="footer">
+            <p>Thank you for choosing our service.</p>
+        </div>
+    </div>
+</body>
+</html>

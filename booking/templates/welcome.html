@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("{% static 'img/home2.png'%}");
+            
+        }
+        
+
+        header {
+            background-color: #333;
+            padding: 20px;
+            animation: fadeIn 1s ease-out; /* Animation for header */
+        }
+
+        .logo {
+            height: 90px;
+            animation: rotateIn 1s ease-out; 
+        }
+
+        main {
+            padding: 20px;
+            animation: slideInLeft 1s ease-out; 
+        }
+
+        .container {
+            max-width: 420px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color:;
+            border-radius: 10px;
+            box-shadow: 0 0 80px rgba(0, 0, 0, .8);
+            text-align: center;
+        }
+
+        main h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        main p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        main button {
+            background-color: #333;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 10px 20px;
+            text-transform: uppercase;
+        }
+
+        main button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: transparent;
+            padding: 10px;
+            color: white;
+            margin-top: 120px;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .nav-link {
+            color:black;
+        }
+
+        /* Keyframes for animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes rotateIn {
+            from {
+                transform: rotateY(0deg);
+                opacity: 0;
+            }
+            to {
+                transform: rotateY(360deg);
+                opacity: 1;
+            }
+        }
+            .logo {
+                height: 100px;
+                animation: rotateIn 1s ease-out;
+            }
+        
+    </style>
+   
+    
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<div class="nav justify-content-between align-items-center">
+    <div>
+        <img class="logo" src="{% static 'img/logo3.png' %}" alt="Logo">
+    </div>
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link" href="{%url 'user:about'%}">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'user:signup'%}">Signup</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'user:login'%}">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{%url 'user:contact'%}">Contact</a>
+        </li>
+    </ul>
+</div>
+<main>
+    <div class="container">
+        <h1 style="color:orange;">Welcome to PR Car Rental Service</h1>
+        <p style="color:pearl;">Here you can find the perfect Car for your next adventure. Browse our selection and book online today.</p>
+    </div>
+</main>
+<footer>
+    <marquee>For further Query Contact: 7976588764 Or Email us at:PRservice@gmail.com</marquee>
+    <p>©Copyright reserved</p>
+</footer>
+</body>
+</html>

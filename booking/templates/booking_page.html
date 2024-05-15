@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Page</title>
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        /* Body Styles */
+        body {
+            width: 100%;
+            height: 80%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("{% static 'img/tree.png'%}");
+            position: relative;
+        }
+
+     
+        /* Container Styles */
+        .container {
+            height:100%;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: silver;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1; /* Ensure the container is above the background overlay */
+        }
+
+        /* Heading Styles */
+        h1 {
+            text-align: center;
+            color:black; /* Text color set to white */
+            padding: 10px; /* Adding padding for better visibility */
+            border-radius: 5px; /* Adding border-radius for better aesthetics */
+        }
+
+        /* Form Styles */
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        select,
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Link Styles */
+        a {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Booking Page</h1>
+        <form method="post" action="{% url 'user:result' %}">
+            {% csrf_token %}
+            <label for="book_from">Book From:</label>
+            <select id="book_from" name="book_from" required>
+                <option value="" disabled selected>Select Book From</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Uttar pradesh">Uttar pradesh</option>
+                <option value="karnataka">karnataka</option>
+            </select><br>
+            <label for="book_to">Book To:</label>
+            <select id="book_to" name="book_to" required>
+                <option value="" disabled selected>Select Book To</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Uttar pradesh">Uttar pradesh</option>
+                <option value="karnataka">karnataka</option>
+            </select><br>
+            <!-- Replace input type="text" with class="flatpickr" -->
+            Enter Date: <input type="text" class="flatpickr" name="date" required><br>
+            <input type="submit" value="Submit">
+        </form>
+        <a href="{% url 'user:homepage' %}">Home Page</a><br>
+        <a href="{% url 'user:logout' %}">Logout</a>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        flatpickr('.flatpickr', {
+            dateFormat: 'd/m/y',
+            minDate: 'today', 
+        });
+    </script>
+</body>
+</html>

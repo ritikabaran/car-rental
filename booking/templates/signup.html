@@ -1,0 +1,129 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <style>
+        /* General styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Left half - Image */
+        .left-half {
+            flex: 65%;
+            background-image: url("{% static 'img/car2.png' %}");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+
+        /* Right half - Signup form */
+        .right-half {
+            flex: 35%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color:black;
+            padding: 20px;
+        }
+
+        .container {
+            width: 80%; /* Adjust width as needed */
+            max-width: 400px;
+            padding: 20px;
+            background-color:black;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        h2 {
+            text-align: center;
+            color: #ff0000;
+            margin-top: 10px;
+        }
+
+        /* Styling for links */
+        a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Left half - Image -->
+<div class="left-half"></div>
+
+<!-- Right half - Signup form -->
+<div class="right-half">
+    <div class="container">
+        <h1 style="color:green;">Signup</h1>
+        <form method="post" action="{% url 'user:store_user' %}">
+            <h2>{{msg}}</h2>
+            {% csrf_token %}
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="Enter Username" required>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="Enter password" required>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" placeholder="Enter name" required>
+            <input type="submit" value="Submit">
+        </form>
+        <p style="color:white;">Already have an account? <a style="color:brown;"  href="{% url 'user:login' %}">Login here</a></p>
+    </div>
+</div>
+
+</body>
+</html>
